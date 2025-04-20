@@ -1,6 +1,7 @@
 # InterfaceHive-Web
 
 InterfaceHive is a platform that connects project owners with contributors, making it easier for people to access opportunities to contribute to open source or real-world applications. The platform enables users in need of assistance to receive contributions from multiple collaborators through an intuitive web interface. Hello
+Cool.
 
 ## Table of Contents
 
