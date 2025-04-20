@@ -230,3 +230,5 @@ Resolves: #123
 6. Regular releases will merge beta into main after thorough testing
 
 Remember, never merge directly to main. All changes must go through beta first.
+
+Hi :)
