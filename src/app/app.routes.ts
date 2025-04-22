@@ -1,8 +1,8 @@
 // app.routes.ts
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ViewRequestsComponent } from './pages/view-requests/view-requests.component';
-import { CreateRequestComponent } from './pages/create-request/create-request.component';
+import { HomeComponent } from './features/home/home.component';
+import { ViewRequestsComponent } from './features/view-requests/view-requests.component';
+import { CreateRequestComponent } from './features/create-request/create-request.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
