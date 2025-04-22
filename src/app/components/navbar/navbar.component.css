@@ -1,0 +1,103 @@
+/* Navbar styles */
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  
+  .logo-icon {
+    color: var(--primary);
+    margin-right: 10px;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 8px;
+    border-radius: 4px;
+  }
+  
+  nav a:hover {
+    background-color: var(--border);
+  }
+  
+  nav a.active {
+    background-color: var(--highlight);
+    color: var(--text);
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+  }
+  
+  .btn-outline:hover {
+    background-color: rgba(73, 123, 227, 0.08);
+  }
+  
+  .btn-secondary {
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #3e6ad0;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      padding: 12px;
+    }
+  
+    nav ul {
+      margin: 12px 0;
+    }
+  
+    .auth-buttons {
+      width: 100%;
+      justify-content: center;
+    }
+  }

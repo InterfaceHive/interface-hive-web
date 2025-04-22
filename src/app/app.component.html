@@ -1,11 +1,6 @@
-<h1>{{ title }}</h1>
+<app-navbar></app-navbar>
 
-<nav>
-  <ul>
-    <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-    <li><a routerLink="view-requests" routerLinkActive="active">View Requests</a></li>
-    <li><a routerLink="create-request" routerLinkActive="active">Create Request</a></li>
-  </ul>
-</nav>
-
-<router-outlet></router-outlet>
+<div class="container main-content">
+  <h1>{{ title }}</h1>
+  <router-outlet></router-outlet>
+</div>
