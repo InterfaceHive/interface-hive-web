@@ -1,0 +1,36 @@
+// Main color variables
+:root {
+    --primary: #F1BF42;        /* Orange - primary accent */
+    --secondary: #497BE3;      /* Blue - links and buttons */
+    --background: #FCFCFC;     /* Off-white - main background */
+    --text: #2F3337;           /* Dark gray - main text */
+    --border: #E3E6E8;         /* Light gray - borders */
+    --highlight: #FFF8DC;      /* Cream - highlight background */
+    --green: #5EBA7D;          /* Green - success/accepted */
+    --text-light: #6A737C;     /* Medium gray - secondary text */
+    --primary-light: rgba(241, 191, 66, 0.1); /* Light orange for backgrounds */
+  }
+  
+  // SCSS Variables for use in component files
+  $primary: #F1BF42;
+  $secondary: #497BE3;
+  $background: #FCFCFC;
+  $text: #2F3337;
+  $border: #E3E6E8;
+  $highlight: #FFF8DC;
+  $green: #5EBA7D;
+  $text-light: #6A737C;
+  $primary-light: rgba(241, 191, 66, 0.1);
+  
+  // Color utility classes
+  .bg-primary { background-color: var(--primary); }
+  .bg-secondary { background-color: var(--secondary); }
+  .bg-background { background-color: var(--background); }
+  .bg-highlight { background-color: var(--highlight); }
+  .bg-primary-light { background-color: var(--primary-light); }
+  
+  .text-primary { color: var(--primary); }
+  .text-secondary { color: var(--secondary); }
+  .text-dark { color: var(--text); }
+  .text-light { color: var(--text-light); }
+  .text-success { color: var(--green); }
