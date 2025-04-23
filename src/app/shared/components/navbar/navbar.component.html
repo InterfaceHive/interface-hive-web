@@ -15,9 +15,14 @@
   <nav>
     <ul>
       <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-      <li><a routerLink="/view-requests" routerLinkActive="active">Requests</a></li>
+      <li class="dropdown">
+        <a class="dropbtn">Requests <i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a routerLink="/view-requests" routerLinkActive="active">View All Requests</a>
+          <a routerLink="/create-request" routerLinkActive="active">New Request</a>
+        </div>
+      </li>
       <li><a href="#">Contributions</a></li>
-      <li><a routerLink="/create-request" routerLinkActive="active">Create Request</a></li>
       <li><a href="#">About</a></li>
     </ul>
   </nav>
