@@ -61,16 +61,6 @@
       transition: background-color 0.2s;
     }
     
-    .btn-primary {
-      background-color: var(--primary);
-      color: var(--text);
-      border: none;
-    }
-    
-    .btn-primary:hover {
-      background-color: #e0ae34;
-    }
-    
     .btn-outline {
       background-color: transparent;
       color: var(--secondary);
