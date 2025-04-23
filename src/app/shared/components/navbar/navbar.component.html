@@ -1,29 +1,28 @@
-<nav class="header">
-    <div class="container header-container">
-      <a routerLink="/" class="logo">
-        <span class="logo-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 20h.01"></path>
-            <path d="M7 20v-4"></path>
-            <path d="M12 20v-8"></path>
-            <path d="M17 20V8"></path>
-            <path d="M22 4v16"></path>
-          </svg>
-        </span>
-        InterfaceHive
-      </a>
-      
-      <nav>
-        <ul>
-          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-          <li><a routerLink="/view-requests" routerLinkActive="active">Requests</a></li>
-          <li><a routerLink="/create-request" routerLinkActive="active">Create Request</a></li>
-        </ul>
-      </nav>
-      
-      <div class="auth-buttons">
-        <a href="#" class="btn btn-outline">Log in</a>
-        <a href="#" class="btn btn-secondary">Sign up</a>
-      </div>
-    </div>
+<div class="container header-container">
+  <a href="#" class="logo">
+    <span class="logo-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 20h.01"></path>
+        <path d="M7 20v-4"></path>
+        <path d="M12 20v-8"></path>
+        <path d="M17 20V8"></path>
+        <path d="M22 4v16"></path>
+      </svg>
+    </span>
+    InterfaceHive
+  </a>
+  
+  <nav>
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/view-requests" routerLinkActive="active">Requests</a></li>
+      <li><a href="#">Contributions</a></li>
+      <li><a routerLink="/create-request" routerLinkActive="active">Create Request</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
   </nav>
+  
+  <div class="auth-buttons">
+    <a href="#" class="btn btn-outline">Log in</a>
+    <a href="#" class="btn btn-secondary">Sign up</a>
+  </div>
