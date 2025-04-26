@@ -1,0 +1,110 @@
+
+    :root {
+      --primary: #F1BF42;        /* Orange - primary accent */
+      --secondary: #497BE3;      /* Blue - links and buttons */
+      --background: #FCFCFC;     /* Off-white - main background */
+      --text: #2F3337;           /* Dark gray - main text */
+      --border: #E3E6E8;         /* Light gray - borders */
+      --highlight: #FFF8DC;      /* Cream - highlight background */
+      --green: #5EBA7D;          /* Green - success/accepted */
+      --text-light: #6A737C;     /* Medium gray - secondary text */
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border);
+      padding: 48px 0 24px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    
+    .footer-about h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    
+    .footer-about p {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+    
+    .footer-links h4 {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    
+    @media (max-width: 900px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero-content {
+        flex-direction: column;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
