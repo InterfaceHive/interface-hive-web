@@ -1,15 +1,3 @@
-:root {
-    --primary: #F1BF42;        /* Orange - primary accent */
-    --secondary: #497BE3;      /* Blue - links and buttons */
-    --background: #FCFCFC;     /* Off-white - main background */
-    --text: #2F3337;           /* Dark gray - main text */
-    --border: #E3E6E8;         /* Light gray - borders */
-    --highlight: #FFF8DC;      /* Cream - highlight background */
-    --green: #5EBA7D;          /* Green - success/accepted */
-    --red: #E65A50;            /* Red - danger/delete */
-    --text-light: #6A737C;     /* Medium gray - secondary text */
-  }
-  
   * {
     box-sizing: border-box;
     margin: 0;
