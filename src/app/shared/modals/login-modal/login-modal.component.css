@@ -1,0 +1,136 @@
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .modal {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    padding: 32px;
+    position: relative;
+  }
+  
+  .modal-header {
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  
+  .modal-title {
+    font-size: 24px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  
+  .modal-subtitle {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 24px;
+  }
+  
+  .google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 24px;
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--text);
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .google-btn:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .google-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .modal-footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  
+  .modal-footer a {
+    color: var(--secondary);
+    text-decoration: none;
+  }
+  
+  .modal-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+    color: var(--text-light);
+    font-size: 14px;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--border);
+  }
+  
+  .divider::before {
+    margin-right: 16px;
+  }
+  
+  .divider::after {
+    margin-left: 16px;
+  }
+  
+  .logo-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  
+  .logo-icon {
+    color: var(--primary);
+    margin-right: 8px;
+  }
+  
+  .logo-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+  }
