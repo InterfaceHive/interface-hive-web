@@ -8,8 +8,8 @@
             <p>InterfaceHive is where project owners find skilled contributors and where developers gain real-world experience through meaningful collaboration.</p>
             
             <div style="display: flex; gap: 16px; margin-top: 24px;">
-              <a href="http://localhost:4200/create-request"  class="btn btn-primary">Post a Request</a>
-              <a href="#" class="btn btn-outline">Become a Contributor</a>
+              <a routerLink="/create-request" routerLinkActive="active" class="btn btn-primary">Post a Request</a>
+              <a routerLink="/view-requests" routerLinkActive="active" class="btn btn-outline">Become a Contributor</a>
             </div>
             
             <div class="search-widget" style="margin-top: 32px;">
@@ -189,7 +189,7 @@
           </div>
           
           <div style="text-align: center; margin-top: 32px;">
-            <a href="http://localhost:4200/view-requests" class="btn btn-outline">View All Requests</a>
+            <a routerLink="/view-requests" routerLinkActive="active" class="btn btn-outline">View All Requests</a>
           </div>
         </div>
       </section>
@@ -199,7 +199,7 @@
           <h2>Ready to collaborate on meaningful projects?</h2>
           <p>Whether you need contributions for your project or want to build your portfolio with real-world experience, InterfaceHive connects you with the right people.</p>
           <div class="cta-buttons">
-            <a href="#" class="btn btn-primary">Start a Project</a>
+            <a routerLink="/create-request" routerLinkActive="active" class="btn btn-primary">Start a Project</a>
             <a href="#" class="btn btn-secondary">Join as Contributor</a>
           </div>
         </div>
