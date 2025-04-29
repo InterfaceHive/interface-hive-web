@@ -6,15 +6,37 @@
           <div class="hero-text">
             <h1>Connect with contributors to build amazing projects</h1>
             <p>InterfaceHive is where project owners find skilled contributors and where developers gain real-world experience through meaningful collaboration.</p>
-            <div style="display: flex; gap: 16px;">
-              <a href="#" class="btn btn-primary">Post a Request</a>
-              <a href="#" class="btn btn-outline">Become a Contributor</a>
+            
+            <div style="display: flex; gap: 16px; margin-top: 24px;">
+              <a routerLink="/create-request" routerLinkActive="active" class="btn btn-primary">Post a Request</a>
+              <a routerLink="/view-requests" routerLinkActive="active" class="btn btn-outline">Become a Contributor</a>
             </div>
             
-            <div class="search-widget">
-              <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search for projects or skills...">
-                <button class="btn btn-secondary">Search</button>
+            <div class="search-widget" style="margin-top: 32px;">
+              <div class="search-container" style="display: flex; max-width: 600px; width: 100%; border-radius: 8px; overflow: hidden;">
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search for projects or skills..."
+                  style="flex: 1; padding: 16px 20px; border: 1px solid #ccc; border-radius: 8px 0 0 8px; font-size: 16px;"
+                >
+                <button
+                  class="btn-search"
+                  style="
+                    background-color: var(--secondary);
+                    color: white;
+                    padding: 16px 32px;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease, transform 0.1s ease;"
+                  onmouseover="this.style.backgroundColor='#6B94EC';"
+                  onmouseout="this.style.backgroundColor='var(--secondary)';"
+                  onmousedown="this.style.backgroundColor='#3A66C1'; this.style.transform='scale(0.97)';"
+                  onmouseup="this.style.backgroundColor='#6B94EC'; this.style.transform='scale(1)';"
+                >
+                  Search
+                </button>
               </div>
             </div>
           </div>
@@ -167,7 +189,7 @@
           </div>
           
           <div style="text-align: center; margin-top: 32px;">
-            <a href="#" class="btn btn-outline">View All Requests</a>
+            <a routerLink="/view-requests" routerLinkActive="active" class="btn btn-outline">View All Requests</a>
           </div>
         </div>
       </section>
@@ -177,7 +199,7 @@
           <h2>Ready to collaborate on meaningful projects?</h2>
           <p>Whether you need contributions for your project or want to build your portfolio with real-world experience, InterfaceHive connects you with the right people.</p>
           <div class="cta-buttons">
-            <a href="#" class="btn btn-primary">Start a Project</a>
+            <a routerLink="/create-request" routerLinkActive="active" class="btn btn-primary">Start a Project</a>
             <a href="#" class="btn btn-secondary">Join as Contributor</a>
           </div>
         </div>
