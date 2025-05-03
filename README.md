@@ -1,124 +1,232 @@
-# Project Name
+# InterfaceHive-Web
 
-## Overview
-Brief description of what this project does and what problem it solves.
-
+InterfaceHive is a platform that connects project owners with contributors, making it easier for people to access opportunities to contribute to open source or real-world applications. The platform enables users in need of assistance to receive contributions from multiple collaborators through an intuitive web interface. 
 ## Table of Contents
-- [Local Development Setup](#local-development-setup)
-- [Pull Request Guidelines](#pull-request-guidelines)
-- [Troubleshooting Guide](#troubleshooting-guide)
-- [Contributing](#contributing)
-- [License](#license)
 
-## Local Development Setup
+- [Project Overview](#project-overview)
+- [Local Setup Guide](#local-setup-guide)
+  - [Prerequisites](#prerequisites)
+  - [Installation Steps](#installation-steps)
+  - [Configuration](#configuration)
+  - [Running the Application](#running-the-application)
+- [Troubleshooting Guide](#troubleshooting-guide)
+  - [Common Issues](#common-issues)
+  - [Angular Specific Issues](#angular-specific-issues)
+  - [Dependency Issues](#dependency-issues)
+- [Pull Request Guidelines](#pull-request-guidelines)
+  - [Branch Structure](#branch-structure)
+  - [Commit Message Format](#commit-message-format)
+  - [PR Review Process](#pr-review-process)
+
+## Project Overview
+
+InterfaceHive aims to lower the barrier of entry for contributing to projects by:
+- Providing a platform where project owners can list opportunities
+- Allowing contributors to find projects that match their skills
+- Facilitating collaboration between multiple contributors on a single project
+- Streamlining the contribution process through an intuitive interface
+
+## Local Setup Guide
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm (v8 or higher)
+
+Before setting up the project locally, ensure you have the following installed:
+
+- Node.js (v16.x or later)
+- npm (v8.x or later) or Yarn (v1.22.x or later)
+- Angular CLI (v15.x or later)
 - Git
+
+You can check your installed versions with:
+
+```bash
+node --version
+npm --version
+ng version
+git --version
+```
 
 ### Installation Steps
 
-1. **Clone the repository**
+1. Clone the repository:
    ```bash
-   git clone https://github.com/username/project-name.git
-   cd project-name
+   git clone https://github.com/your-organization/InterfaceHive.git
+   cd InterfaceHive
    ```
 
-2. **Install dependencies**
+2. Install dependencies:
    ```bash
    npm install
    ```
-
-3. **Set up environment variables**
+   
+   Or if you're using Yarn:
    ```bash
-   cp .env.example .env
-   ```
-   Edit the `.env` file with your local configuration values.
-
-4. **Run database migrations**
-   ```bash
-   npm run migrate
+   yarn install
    ```
 
-5. **Start the development server**
+3. Install Angular CLI globally if you haven't already:
    ```bash
-   npm run dev
+   npm install -g @angular/cli
    ```
-   The application will be available at `http://localhost:3000`
 
-### Running Tests
-```bash
-# Run all tests
-npm test
+### Configuration
 
-# Run unit tests only
-npm run test:unit
+1. Create a local environment file:
+   ```bash
+   cp src/environments/environment.sample.ts src/environments/environment.ts
+   ```
 
-# Run integration tests only
-npm run test:integration
-```
+2. Update the environment.ts file with your local configuration values:
+   ```typescript
+   export const environment = {
+     production: false,
+     apiUrl: 'http://localhost:4000/api',
+     // Add other environment variables as needed
+   };
+   ```
 
-## Pull Request Guidelines
+### Running the Application
 
-### Before Creating a PR
-1. Make sure your code follows the project's style guide
-2. Write or update tests for the changes you've made
-3. Ensure all tests pass locally
-4. Update documentation if necessary
+1. Start the development server:
+   ```bash
+   ng serve
+   ```
 
-### PR Process
-1. **Branch Naming Convention**
-   - Feature: `feature/short-description`
-   - Bug fix: `fix/issue-short-description`
-   - Documentation: `docs/what-changed`
-   - Refactoring: `refactor/what-changed`
+2. Open your browser and navigate to:
+   ```
+   http://localhost:4200
+   ```
 
-2. **Create a Pull Request**
-   - Use the PR template provided
-   - Provide a clear, descriptive title
-   - Reference any related issues with `#issue-number`
-   - Include a detailed description of changes
+3. For running with a specific configuration:
+   ```bash
+   ng serve --configuration=dev
+   ```
 
-3. **Code Review Process**
-   - At least one approval is required before merging
-   - Address all comments and suggestions from reviewers
-   - Ensure CI checks pass
-
-4. **Merging Strategy**
-   - We use squash merging to maintain a clean commit history
-   - PR titles will be used as the squashed commit message
+4. To build the application for production:
+   ```bash
+   ng build --configuration=production
+   ```
 
 ## Troubleshooting Guide
 
 ### Common Issues
 
-#### Installation Problems
-- **Issue**: `npm install` fails with dependency errors
-  - **Solution**: Try clearing npm cache with `npm cache clean --force` and retry installation
-  - **Solution**: Check node version with `node -v` and update if necessary
+#### "Module not found" errors
+- Make sure all dependencies are installed correctly with `npm install`
+- Clear the npm cache with `npm cache clean --force` and try reinstalling
 
-#### Development Server Issues
-- **Issue**: Server fails to start with port already in use
-  - **Solution**: Kill the process using the port: `lsof -i :3000` then `kill -9 PID`
-  - **Solution**: Change the port in your `.env` file
+#### Port already in use
+If port 4200 is already in use, you can specify a different port:
+```bash
+ng serve --port 4201
+```
 
-#### Database Connection Problems
-- **Issue**: "Connection refused" when connecting to database
-  - **Solution**: Ensure database service is running
-  - **Solution**: Verify connection credentials in `.env` file
+#### Cannot find @angular/compiler-cli
+This usually means Angular CLI wasn't installed correctly. Try:
+```bash
+npm install --save-dev @angular/compiler-cli
+```
 
-#### Test Failures
-- **Issue**: Tests timeout or fail inconsistently
-  - **Solution**: Increase timeout value in test configuration
-  - **Solution**: Check for race conditions in asynchronous tests
+### Angular Specific Issues
 
-#### Build Errors
-- **Issue**: TypeScript compilation errors
-  - **Solution**: Run `npm run lint:fix` to fix auto-fixable issues
-  - **Solution**: Check for type definition updates with `npm update @types/*`
+#### Angular version mismatch
+If you encounter version mismatch errors, ensure all Angular packages are on the same version:
+```bash
+ng update @angular/core @angular/cli
+```
 
-### Debugging Tips
-1. Enable debug logs by setting `DEBUG=app:*` in your `.env` file
-2. Use browser developer tools to inspect network requests and console errors
-3. For API debugging, use tools like Postman or cURL to test endpoints directly
+#### AOT compilation errors
+- Check for template syntax errors in your components
+- Ensure all variables used in templates are defined in the component class
+- Make sure any functions called from templates don't rely on external context
+
+### Dependency Issues
+
+#### Node Sass binding errors
+If you encounter node-sass binding issues:
+```bash
+npm rebuild node-sass
+```
+
+#### Peer dependency warnings
+Angular has strict peer dependency requirements. Address warnings with:
+```bash
+npm install --legacy-peer-deps
+```
+
+## Pull Request Guidelines
+
+### Branch Structure
+
+- **main**: Production-ready code
+- **beta**: Integration branch for testing features before production
+- **feature/[feature-name]**: Development branches for new features
+- **bugfix/[bug-name]**: Branches for bug fixes
+- **hotfix/[issue-name]**: Emergency fixes that may go directly to main after review
+
+All development work should be based on and merged back to the **beta** branch, not main.
+
+### Commit Message Format
+
+Follow this format for commit messages:
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+Types:
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that don't affect code functionality (formatting, etc.)
+- **refactor**: Code change that neither fixes a bug nor adds a feature
+- **perf**: Code change that improves performance
+- **test**: Adding or correcting tests
+- **chore**: Changes to build process or auxiliary tools
+
+Example:
+```
+feat(auth): implement user authentication
+
+- Add login component
+- Create authentication service
+- Implement JWT token storage
+
+Resolves: #123
+```
+
+### PR Review Process
+
+1. Create a feature branch from beta:
+   ```bash
+   git checkout beta
+   git pull
+   git checkout -b feature/your-feature-name
+   ```
+
+2. Make your changes and push to your branch:
+   ```bash
+   git add .
+   git commit -m "feat(component): add new feature"
+   git push origin feature/your-feature-name
+   ```
+
+3. Create a Pull Request to the beta branch (NOT main)
+
+4. Requirements for merging:
+   - At least 1 approved review is required
+   - All CI checks must pass
+   - No merge conflicts
+   - PR description must clearly explain the changes and reference any related issues
+
+5. After approval, the PR can be merged into beta
+
+6. Regular releases will merge beta into main after thorough testing
+
+Remember, never merge directly to main. All changes must go through beta first.
+
+Hi :)

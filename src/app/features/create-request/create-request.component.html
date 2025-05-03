@@ -1,0 +1,93 @@
+<section class="page-header">
+  <div class="container">
+    <h1>Create New Implementation Request</h1>
+    <p>Describe your code implementation needs...</p>
+  </div>
+</section>
+
+<div class="container">
+  <form class="form-section">
+    <div class="form-group">
+      <label for="title" class="form-label">Request Title</label>
+      <p class="form-help">Provide a clear and specific title...</p>
+      <input type="text" id="title" class="form-input" placeholder="e.g., 'Implement efficient sorting algorithm for large datasets'">
+    </div>
+
+    <div class="form-group">
+      <label for="description" class="form-label">Description</label>
+      <p class="form-help">Explain in detail...</p>
+      <textarea id="description" class="form-input form-textarea" placeholder="Describe your requirements..."></textarea>
+    </div>
+
+    <!-- Code Tabs -->
+    <div class="form-group">
+      <label class="form-label">Code Implementation</label>
+      <div class="tab-container">
+        <div class="tab-header">
+          <button type="button" class="tab-button" [class.active]="activeCodeTab === 'code-tab'" (click)="switchTab('code', 'code-tab')">Code Template</button>
+          <button type="button" class="tab-button" [class.active]="activeCodeTab === 'implementation-tab'" (click)="switchTab('code', 'implementation-tab')">Implementation Requirements</button>
+        </div>
+        <div id="code-tab" class="tab-content" [class.active]="activeCodeTab === 'code-tab'">
+          <textarea class="form-input form-textarea code-editor" placeholder="Paste your code template here..."></textarea>
+        </div>
+        <div id="implementation-tab" class="tab-content" [class.active]="activeCodeTab === 'implementation-tab'">
+          <textarea class="form-input form-textarea" placeholder="Implementation detail..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sample I/O Tabs -->
+    <div class="form-group">
+      <label class="form-label">Sample Input/Output</label>
+      <div class="tab-container">
+        <div class="tab-header">
+          <button type="button" class="tab-button" [class.active]="activeIOtab === 'input-tab'" (click)="switchTab('io', 'input-tab')">Sample Input</button>
+          <button type="button" class="tab-button" [class.active]="activeIOtab === 'output-tab'" (click)="switchTab('io', 'output-tab')">Expected Output</button>
+        </div>
+        <div id="input-tab" class="tab-content" [class.active]="activeIOtab === 'input-tab'">
+          <textarea class="form-input form-textarea code-editor"></textarea>
+        </div>
+        <div id="output-tab" class="tab-content" [class.active]="activeIOtab === 'output-tab'">
+          <textarea class="form-input form-textarea code-editor"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Credits -->
+    <div class="form-group">
+      <label for="credits" class="form-label">Credits Offered</label>
+      <div class="credit-input-container">
+        <input type="number" id="credits" class="form-input credit-input" min="1" value="25">
+        <span>credits</span>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="form-group">
+      <label class="form-label">Tags</label>
+      <div class="tags-container">
+        <div class="tag" *ngFor="let tag of tags; let i = index">
+          {{ tag }} <span class="tag-remove" (click)="removeTag(i)">&times;</span>
+        </div>
+      </div>
+      <div class="tag-input-container">
+        <input type="text" class="tag-input" placeholder="Add tag (press Enter to add)..." [(ngModel)]="newTag" (keydown.enter)="addTag($event)">
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="form-footer">
+      <div class="form-info">
+        By submitting this request, you agree to our <a href="#">Terms</a>.
+      </div>
+      <div class="form-buttons">
+        <button type="button" class="btn btn-outline">Save as Draft</button>
+        <button type="submit" class="btn btn-secondary">Publish Request</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<footer>
+  <!-- Footer content here -->
+</footer>

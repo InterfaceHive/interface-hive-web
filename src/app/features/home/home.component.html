@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1>Connect with contributors to build amazing projects</h1>
+            <p>InterfaceHive is where project owners find skilled contributors and where developers gain real-world experience through meaningful collaboration.</p>
+            
+            <div style="display: flex; gap: 16px; margin-top: 24px;">
+              <a routerLink="/create-request" routerLinkActive="active" class="btn btn-primary">Post a Request</a>
+              <a routerLink="/view-requests" routerLinkActive="active" class="btn btn-outline">Become a Contributor</a>
+            </div>
+            
+            <div class="search-widget" style="margin-top: 32px;">
+              <div class="search-container" style="display: flex; max-width: 600px; width: 100%; border-radius: 8px; overflow: hidden;">
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search for projects or skills..."
+                  style="flex: 1; padding: 16px 20px; border: 1px solid #ccc; border-radius: 8px 0 0 8px; font-size: 16px;"
+                >
+                <button
+                  class="btn-search"
+                  style="
+                    background-color: var(--secondary);
+                    color: white;
+                    padding: 16px 32px;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease, transform 0.1s ease;"
+                  onmouseover="this.style.backgroundColor='#6B94EC';"
+                  onmouseout="this.style.backgroundColor='var(--secondary)';"
+                  onmousedown="this.style.backgroundColor='#3A66C1'; this.style.transform='scale(0.97)';"
+                  onmouseup="this.style.backgroundColor='#6B94EC'; this.style.transform='scale(1)';"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="/api/placeholder/500/400" alt="Collaboration illustration">
+          </div>
+        </div>
+      </section>
+    
+      <section class="features">
+        <div class="container">
+          <div class="section-header">
+            <h2>How InterfaceHive Works</h2>
+            <p>Our platform connects project owners with contributors through a structured and efficient process.</p>
+          </div>
+          
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon primary-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F1BF42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <h3>Post Requests</h3>
+              <p>Share your project needs with detailed descriptions, required skills, and expected contributions. Our structured format helps you clearly communicate what you're looking for.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon primary-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F1BF42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <h3>Get Responses</h3>
+              <p>Contributors respond with specific solutions, code submissions, or implementation approaches. Our clean interface makes evaluating contributions easy.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon primary-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F1BF42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+              <h3>Award Credits</h3>
+              <p>Accept the best contributions and award credits to contributors. Our credit system creates a trusted ecosystem where quality work is recognized and rewarded.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section class="projects">
+        <div class="container">
+          <div class="section-header">
+            <h2>Featured Contribution Opportunities</h2>
+            <p>Browse these active projects seeking contributors right now</p>
+          </div>
+          
+          <div class="projects-list">
+            <div class="project-card">
+              <div class="project-stats">
+                <div class="stat">
+                  <div class="stat-value">5</div>
+                  <div class="stat-label">Responses</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value" style="color: var(--green);">25</div>
+                  <div class="stat-label">Credits</div>
+                </div>
+              </div>
+              
+              <div class="project-content">
+                <a href="#" class="project-title">Need React component for data visualization dashboard</a>
+                <p class="project-description">Looking for contributors to help build responsive, interactive charts and graphs for a new analytics dashboard. Must be performant with large datasets.</p>
+                <div class="project-meta">
+                  <span>Posted by <a href="#">dataviz_pro</a></span>
+                  <span>2 days ago</span>
+                  <span>Active</span>
+                </div>
+                <div class="tags">
+                  <span class="tag">react</span>
+                  <span class="tag">d3.js</span>
+                  <span class="tag">data-visualization</span>
+                  <span class="tag">frontend</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-stats">
+                <div class="stat">
+                  <div class="stat-value">12</div>
+                  <div class="stat-label">Responses</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value" style="color: var(--green);">40</div>
+                  <div class="stat-label">Credits</div>
+                </div>
+              </div>
+              
+              <div class="project-content">
+                <a href="#" class="project-title">API integration for payment processing system</a>
+                <p class="project-description">Need help integrating multiple payment gateways into our existing Node.js backend. Looking for secure implementation with proper error handling.</p>
+                <div class="project-meta">
+                  <span>Posted by <a href="#">paytech_solutions</a></span>
+                  <span>4 days ago</span>
+                  <span>Active</span>
+                </div>
+                <div class="tags">
+                  <span class="tag">api</span>
+                  <span class="tag">node.js</span>
+                  <span class="tag">payment-processing</span>
+                  <span class="tag">backend</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-stats">
+                <div class="stat">
+                  <div class="stat-value">3</div>
+                  <div class="stat-label">Responses</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value" style="color: var(--green);">15</div>
+                  <div class="stat-label">Credits</div>
+                </div>
+              </div>
+              
+              <div class="project-content">
+                <a href="#" class="project-title">Accessibility improvements for education platform</a>
+                <p class="project-description">Seeking contributors to help make our learning platform more accessible. WCAG 2.1 AA compliance is the goal. Focus on screen reader compatibility and keyboard navigation.</p>
+                <div class="project-meta">
+                  <span>Posted by <a href="#">edu_access</a></span>
+                  <span>1 day ago</span>
+                  <span>Active</span>
+                </div>
+                <div class="tags">
+                  <span class="tag">accessibility</span>
+                  <span class="tag">a11y</span>
+                  <span class="tag">html</span>
+                  <span class="tag">css</span>
+                  <span class="tag">javascript</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="text-align: center; margin-top: 32px;">
+            <a routerLink="/view-requests" routerLinkActive="active" class="btn btn-outline">View All Requests</a>
+          </div>
+        </div>
+      </section>
+    
+      <section class="cta">
+        <div class="container">
+          <h2>Ready to collaborate on meaningful projects?</h2>
+          <p>Whether you need contributions for your project or want to build your portfolio with real-world experience, InterfaceHive connects you with the right people.</p>
+          <div class="cta-buttons">
+            <a routerLink="/create-request" routerLinkActive="active" class="btn btn-primary">Start a Project</a>
+            <a href="#" class="btn btn-secondary">Join as Contributor</a>
+          </div>
+        </div>
+      </section>
+    </body>
+</html>

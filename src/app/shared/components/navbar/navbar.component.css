@@ -1,0 +1,132 @@
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    
+    .logo-icon {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 8px;
+      border-radius: 4px;
+    }
+    
+    nav a:hover {
+      background-color: var(--border);
+    }
+    
+    .auth-buttons {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--text);
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e0ae34;
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+    }
+    
+    .btn-outline:hover {
+      background-color: rgba(73, 123, 227, 0.08);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #3e6ad0;
+    }
