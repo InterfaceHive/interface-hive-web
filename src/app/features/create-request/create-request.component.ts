@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './create-request.component.html',
   styleUrls: ['./create-request.component.css']
 })
-export class InterfacehiveRequestComponent {
+export class CreateRequestComponent {
   activeCodeTab: 'code-tab' | 'implementation-tab' = 'code-tab';
   activeIOtab: 'input-tab' | 'output-tab' = 'input-tab';
   tags: string[] = ['javascript', 'algorithm', 'sorting'];
