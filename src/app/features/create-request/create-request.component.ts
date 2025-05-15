@@ -1,8 +1,11 @@
 // interfacehive-request.component.ts
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-interfacehive-request',
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './create-request.component.html',
   styleUrls: ['./create-request.component.css']
 })
@@ -20,8 +23,10 @@ export class CreateRequestComponent {
     }
   }
 
-  addTag(event: KeyboardEvent) {
-    if (event.key === 'Enter' && this.newTag.trim()) {
+  addTag(event: Event) {
+    const keyboradEvent = event as KeyboardEvent;
+  
+    if (keyboradEvent.key === 'Enter' && this.newTag.trim()) {
       event.preventDefault();
       this.tags.push(this.newTag.trim());
       this.newTag = '';
