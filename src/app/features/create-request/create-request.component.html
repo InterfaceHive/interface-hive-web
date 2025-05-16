@@ -102,7 +102,8 @@
         <div class="tag">sorting <span class="tag-remove">×</span></div>
       </div>
       <div class="tag-input-container">
-        <input type="text" class="tag-input" placeholder="Add tag (press Enter to add)..." [(ngModel)]="newTag" (keydown.enter)="addTag($event)">
+        <!-- <input type="text" class="tag-input" placeholder="Add tag (press Enter to add)..." (keydown.enter)="addTag($event.target.value) $event.target.value=''"> -->
+        <input #tagInput class="tag-input" type="text" (keydown.enter)="addTag(tagInput.value); tagInput.value=''">
       </div>
     </div>
 
