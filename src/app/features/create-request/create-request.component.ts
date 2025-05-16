@@ -1,11 +1,13 @@
 // interfacehive-request.component.ts
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormArray, FormControl } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-interfacehive-request',
   templateUrl: './create-request.component.html',
   styleUrls: ['./create-request.component.css'],
+  imports: [CommonModule]
 })
 export class CreateRequestComponent {
   activeCodeTab: 'code-tab' | 'implementation-tab' = 'code-tab';
@@ -15,7 +17,10 @@ export class CreateRequestComponent {
 
   tags = new FormArray<FormControl<string>>([]);
 
-  addTag(tag: string) {
+  // TODO: Make the tags remain the same even with a refresh
+
+  addTag(event: Event, tag: string) {
+    event.preventDefault(); //stops the form to be submitted thus stops reloading the page and losing data
     if(tag) {
       this.tags.push(new FormControl(tag, {nonNullable: true}));
     }

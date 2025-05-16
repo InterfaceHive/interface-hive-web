@@ -96,14 +96,19 @@
     <div class="form-group">
       <label class="form-label">Tags</label>
       <p class="form-help">Add relevant tags to help contributors find your request.</p>
-      <div class="tags-container">
+      <!-- <div class="tags-container">
         <div class="tag">javascript <span class="tag-remove">×</span></div>
         <div class="tag">algorithm <span class="tag-remove">×</span></div>
         <div class="tag">sorting <span class="tag-remove">×</span></div>
+      </div> -->
+      <div class="tags-container">
+        <div class="tag" *ngFor="let tag of tags.controls; let i = index">
+          {{ tag.value }} <span class="tag-remove" (click)="removeTag(i)">&times;</span>
+        </div>
       </div>
       <div class="tag-input-container">
         <!-- <input type="text" class="tag-input" placeholder="Add tag (press Enter to add)..." (keydown.enter)="addTag($event.target.value) $event.target.value=''"> -->
-        <input #tagInput class="tag-input" type="text" (keydown.enter)="addTag(tagInput.value); tagInput.value=''">
+        <input #tagInput class="tag-input" type="text" (keydown.enter)="addTag($event, tagInput.value); tagInput.value=''">
       </div>
     </div>
 
