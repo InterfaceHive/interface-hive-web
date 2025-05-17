@@ -1,7 +1,7 @@
 <section class="page-header">
   <div class="container">
     <h1>Create New Implementation Request</h1>
-    <p>Describe your code implementation needs...</p>
+    <p>Describe your code implementation needs, provide sample code structure, and offer credits for successful contributions. Be as soecific as possible to get quality responses.</p>
   </div>
 </section>
 
@@ -9,29 +9,46 @@
   <form class="form-section">
     <div class="form-group">
       <label for="title" class="form-label">Request Title</label>
-      <p class="form-help">Provide a clear and specific title...</p>
+      <p class="form-help">Provide a clear and specific title that describes what you're looking for.</p>
       <input type="text" id="title" class="form-input" placeholder="e.g., 'Implement efficient sorting algorithm for large datasets'">
     </div>
 
     <div class="form-group">
       <label for="description" class="form-label">Description</label>
-      <p class="form-help">Explain in detail...</p>
-      <textarea id="description" class="form-input form-textarea" placeholder="Describe your requirements..."></textarea>
+      <p class="form-help">Explain in detail what you are trying to achieve, any constraints or requirements, and what a successful implementation would look like. </p>
+      <textarea id="description" class="form-input form-textarea" placeholder="Describe your requirements, context, and expectations."></textarea>
     </div>
 
     <!-- Code Tabs -->
     <div class="form-group">
       <label class="form-label">Code Implementation</label>
+      <p class="form-help">Provide your existing code structure with a clear indication of where and what needs to be implemented.</p>
       <div class="tab-container">
         <div class="tab-header">
           <button type="button" class="tab-button" [class.active]="activeCodeTab === 'code-tab'" (click)="switchTab('code', 'code-tab')">Code Template</button>
           <button type="button" class="tab-button" [class.active]="activeCodeTab === 'implementation-tab'" (click)="switchTab('code', 'implementation-tab')">Implementation Requirements</button>
         </div>
         <div id="code-tab" class="tab-content" [class.active]="activeCodeTab === 'code-tab'">
-          <textarea class="form-input form-textarea code-editor" placeholder="Paste your code template here..."></textarea>
+          <textarea class="form-input form-textarea code-editor" 
+          placeholder="// Paste your code structure here...
+          // Example:
+          function processData(data) {
+            // TODO: Implement data processing algorithm
+            
+            /* 
+            * IMPLEMENTATION REQUIRED HERE
+            * Should take the input data array and:
+            * 1. Filter out invalid entries
+            * 2. Sort according to priority field
+            * 3. Return processed results
+            */
+            
+            return data;
+          }">
+          </textarea>
         </div>
         <div id="implementation-tab" class="tab-content" [class.active]="activeCodeTab === 'implementation-tab'">
-          <textarea class="form-input form-textarea" placeholder="Implementation detail..."></textarea>
+          <textarea class="form-input form-textarea" placeholder="Describe in detail what needs to be implemented, including technical requirements, edge cases to handle, and performance considerations..."></textarea>
         </div>
       </div>
     </div>
@@ -45,10 +62,22 @@
           <button type="button" class="tab-button" [class.active]="activeIOtab === 'output-tab'" (click)="switchTab('io', 'output-tab')">Expected Output</button>
         </div>
         <div id="input-tab" class="tab-content" [class.active]="activeIOtab === 'input-tab'">
-          <textarea class="form-input form-textarea code-editor"></textarea>
+          <textarea class="form-input form-textarea code-editor" placeholder="// Sample input data
+          const data = [
+            { id: 3, value: 'foo', priority: 2 },
+            { id: 1, value: 'bar', priority: 3 },
+            { id: 2, value: null, priority: 1 }
+          ];
+          "></textarea>
         </div>
         <div id="output-tab" class="tab-content" [class.active]="activeIOtab === 'output-tab'">
-          <textarea class="form-input form-textarea code-editor"></textarea>
+          <textarea class="form-input form-textarea code-editor"placeholder="// Expected output
+          const expected = [
+            { id: 2, value: null, priority: 1 },
+            { id: 3, value: 'foo', priority: 2 },
+            { id: 1, value: 'bar', priority: 3 }
+          ];
+          "></textarea>
         </div>
       </div>
     </div>
@@ -56,6 +85,7 @@
     <!-- Credits -->
     <div class="form-group">
       <label for="credits" class="form-label">Credits Offered</label>
+      <p class="form-help">Specify how many credits you're offering for a successful implementation.</p>
       <div class="credit-input-container">
         <input type="number" id="credits" class="form-input credit-input" min="1" value="25">
         <span>credits</span>
@@ -65,13 +95,20 @@
     <!-- Tags -->
     <div class="form-group">
       <label class="form-label">Tags</label>
+      <p class="form-help">Add relevant tags to help contributors find your request.</p>
+      <!-- <div class="tags-container">
+        <div class="tag">javascript <span class="tag-remove">×</span></div>
+        <div class="tag">algorithm <span class="tag-remove">×</span></div>
+        <div class="tag">sorting <span class="tag-remove">×</span></div>
+      </div> -->
       <div class="tags-container">
-        <div class="tag" *ngFor="let tag of tags; let i = index">
-          {{ tag }} <span class="tag-remove" (click)="removeTag(i)">&times;</span>
+        <div class="tag" *ngFor="let tag of tags.controls; let i = index">
+          {{ tag.value }} <span class="tag-remove" (click)="removeTag(i)">&times;</span>
         </div>
       </div>
       <div class="tag-input-container">
-        <input type="text" class="tag-input" placeholder="Add tag (press Enter to add)..." [(ngModel)]="newTag" (keydown.enter)="addTag($event)">
+        <!-- <input type="text" class="tag-input" placeholder="Add tag (press Enter to add)..." (keydown.enter)="addTag($event.target.value) $event.target.value=''"> -->
+        <input #tagInput class="tag-input" type="text" (keydown.enter)="addTag($event, tagInput.value); tagInput.value=''">
       </div>
     </div>
 
