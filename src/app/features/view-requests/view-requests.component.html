@@ -1,1 +1,233 @@
-<p>view-requests works!</p>
+<html>
+<section class="page-header">
+    <div class="container">
+      <h1>Browse All Requests</h1>
+      <p>Find open source and real-world projects seeking contributors. Filter by tags, sort by different criteria, or search for specific skills and requirements.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="search-section">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search projects by keyword, skill, or description...">
+        <button class="btn btn-secondary">Search</button>
+      </div>
+      
+      <div class="tag-search">
+        <div class="tag-search-header">Popular Tags</div>
+        <div class="tags-container">
+          <div class="tag">javascript</div>
+          <div class="tag selected">react</div>
+          <div class="tag">python</div>
+          <div class="tag">node.js</div>
+          <div class="tag">backend</div>
+          <div class="tag">frontend</div>
+          <div class="tag">api</div>
+          <div class="tag">ui/ux</div>
+          <div class="tag">database</div>
+          <div class="tag">machine-learning</div>
+          <div class="tag">devops</div>
+          <div class="tag">mobile</div>
+          <div class="tag">testing</div>
+        </div>
+        
+        <div class="tag-input-container">
+          <input type="text" class="tag-input" placeholder="Add or search for specific tags...">
+        </div>
+      </div>
+    </section>
+    
+    <section class="filter-section">
+      <div class="filter-group">
+        <span class="filter-label">Sort by:</span>
+        <select class="filter-select">
+          <option>Newest</option>
+          <option>Most Credits</option>
+          <option>Most Responses</option>
+          <option>Least Responses</option>
+          <option>Ending Soon</option>
+        </select>
+        
+        <select class="filter-select">
+          <option>All Requests</option>
+          <option>Open Only</option>
+          <option>Completed</option>
+        </select>
+        
+        <select class="filter-select">
+          <option>Any Credits</option>
+          <option>10+ Credits</option>
+          <option>25+ Credits</option>
+          <option>50+ Credits</option>
+          <option>100+ Credits</option>
+        </select>
+      </div>
+      
+      <div class="result-count">
+        Showing 12 of 234 projects
+      </div>
+    </section>
+    
+    <section class="projects-list">
+      <div class="project-card">
+        <div class="project-stats">
+          <div class="stat">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Responses</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" style="color: var(--green);">25</div>
+            <div class="stat-label">Credits</div>
+          </div>
+        </div>
+        
+        <div class="project-content">
+          <a href="#" class="project-title">Need React component for data visualization dashboard</a>
+          <p class="project-description">Looking for contributors to help build responsive, interactive charts and graphs for a new analytics dashboard. Must be performant with large datasets.</p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <span>Posted by <a href="#">dataviz_pro</a></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </span>
+              <span>2 days ago</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                  <circle cx="12" cy="12" r="1"></circle>
+                </svg>
+              </span>
+              <span>Active</span>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">react</span>
+            <span class="project-tag">d3.js</span>
+            <span class="project-tag">data-visualization</span>
+            <span class="project-tag">frontend</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-stats">
+          <div class="stat">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Responses</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" style="color: var(--green);">40</div>
+            <div class="stat-label">Credits</div>
+          </div>
+        </div>
+        
+        <div class="project-content">
+          <a href="#" class="project-title">API integration for payment processing system</a>
+          <p class="project-description">Need help integrating multiple payment gateways into our existing Node.js backend. Looking for secure implementation with proper error handling.</p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <span>Posted by <a href="#">paytech_solutions</a></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </span>
+              <span>4 days ago</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                  <circle cx="12" cy="12" r="1"></circle>
+                </svg>
+              </span>
+              <span>Active</span>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">api</span>
+            <span class="project-tag">node.js</span>
+            <span class="project-tag">payment-processing</span>
+            <span class="project-tag">backend</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-stats">
+          <div class="stat">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Responses</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" style="color: var(--green);">15</div>
+            <div class="stat-label">Credits</div>
+          </div>
+        </div>
+        
+        <div class="project-content">
+          <a href="#" class="project-title">Accessibility improvements for education platform</a>
+          <p class="project-description">Seeking contributors to help make our learning platform more accessible. WCAG 2.1 AA compliance is the goal. Focus on screen reader compatibility and keyboard navigation.</p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <span>Posted by <a href="#">edu_access</a></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </span>
+              <span>1 day ago</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                  <circle cx="12" cy="12" r="1"></circle>
+                </svg>
+              </span>
+              <span>Active</span>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">accessibility</span>
+            <span class="project-tag">a11y</span>
+            <span class="project-tag">html</span>
+            <span class="project-tag">css</span>
+            <span class="project-tag">javascript</span>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+</html>
