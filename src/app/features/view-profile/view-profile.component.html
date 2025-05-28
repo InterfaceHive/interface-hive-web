@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InterfaceHive - My Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.min.css">
+  <style>
+    :root {
+      --primary: #F1BF42;        /* Orange - primary accent */
+      --secondary: #497BE3;      /* Blue - links and buttons */
+      --background: #FCFCFC;     /* Off-white - main background */
+      --text: #2F3337;           /* Dark gray - main text */
+      --border: #E3E6E8;         /* Light gray - borders */
+      --highlight: #FFF8DC;      /* Cream - highlight background */
+      --green: #5EBA7D;          /* Green - success/accepted */
+      --red: #E34A4A;            /* Red - rejected/not selected */
+      --text-light: #6A737C;     /* Medium gray - secondary text */
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      margin-bottom : 40px;
+    }
+    
+    /* Header Styles */
+    /* header {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    } */
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    
+    .logo-icon {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 8px;
+      border-radius: 4px;
+    }
+    
+    nav a:hover {
+      background-color: var(--border);
+    }
+    
+    nav a.active {
+      background-color: rgba(241, 191, 66, 0.1);
+      color: var(--text);
+    }
+    
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+    
+    .user-menu:hover {
+      background-color: var(--border);
+    }
+    
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 500;
+    }
+    
+    .btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--text);
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e0ae34;
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+    }
+    
+    .btn-outline:hover {
+      background-color: rgba(73, 123, 227, 0.08);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #3e6ad0;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      padding: 16px 0;
+      font-size: 14px;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .breadcrumb .separator {
+      margin: 0 8px;
+      color: var(--text-light);
+    }
+    
+    .breadcrumb .current {
+      color: var(--text-light);
+    }
+    
+    /* Page Header */
+    .page-header {
+      margin-bottom: 24px;
+    }
+    
+    .page-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .page-description {
+      color: var(--text-light);
+      font-size: 16px;
+    }
+    
+    /* Profile content */
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 24px;
+    }
+    
+    .profile-sidebar {
+      background-color: #ffffff;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    
+    .profile-header {
+      padding: 24px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #497BE3;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 500;
+    }
+    
+    .profile-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .profile-username {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .profile-bio {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    
+    .profile-menu {
+      padding: 16px 0;
+    }
+    
+    .profile-menu-item {
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    
+    .profile-menu-item:hover {
+      background-color: rgba(241, 191, 66, 0.1);
+    }
+    
+    .profile-menu-item.active {
+      background-color: rgba(241, 191, 66, 0.1);
+      border-left: 3px solid var(--primary);
+    }
+    
+    .profile-menu-icon {
+      color: var(--text-light);
+    }
+    
+    .profile-main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .profile-card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    
+    .card-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .card-body {
+      padding: 24px;
+    }
+    
+    /* Credits */
+    .credits-display {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .credits-overview {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .credit-stat {
+      flex: 1;
+      min-width: 200px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    
+    .credit-value {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    
+    .credit-label {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    
+    .credits-progress {
+      margin-top: 24px;
+    }
+    
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    
+    .progress-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .progress-value {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    
+    .progress-bar {
+      height: 8px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background-color: var(--secondary);
+    }
+    
+    .progress-description {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    
+    /* Rank */
+    .rank-display {
+      text-align: center;
+      padding: 24px 0;
+    }
+    
+    .rank-badge {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom right, #e0ae34, #f0cd6f);
+    }
+    
+    .rank-badge.early {
+      background: linear-gradient(to bottom right, #c0c0c0, #e0e0e0);
+    }
+    
+    .rank-badge.silver {
+      background: linear-gradient(to bottom right, #C0C0C0, #E8E8E8);
+    }
+    
+    .rank-badge.gold {
+      background: linear-gradient(to bottom right, #FFD700, #FFC400);
+    }
+    
+    .rank-badge.platinum {
+      background: linear-gradient(to bottom right, #E5E4E2, #A9A9A9);
+    }
+    
+    .rank-badge.diamond {
+      background: linear-gradient(to bottom right, #B9F2FF, #77C9D4);
+    }
+    
+    .rank-badge.expert {
+      background: linear-gradient(to bottom right, #8A2BE2, #4B0082);
+    }
+    
+    .rank-badge-inner {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    
+    .rank-icon {
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    
+    .rank-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .rank-description {
+      font-size: 14px;
+      color: var(--text-light);
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+    
+    .rank-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    
+    .rank-benefit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #f9f9f9;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    
+    .rank-benefit-icon {
+      color: var(--primary);
+    }
+    
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    
+    .stat-card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    
+    /* Recent Activity */
+    .activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .activity-item {
+      display: flex;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .activity-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .activity-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(241, 191, 66, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+    
+    .activity-content {
+      flex-grow: 1;
+    }
+    
+    .activity-title {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    
+    .activity-meta {
+      font-size: 12px;
+      color: var(--text-light);
+      display: flex;
+      gap: 8px;
+    }
+   
+    /* Responsive */
+    @media (max-width: 900px) {
+      .profile-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .credits-overview {
+        flex-direction: column;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .rank-benefits {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="#">Home</a>
+      <span class="separator">›</span>
+      <a href="#">My Account</a>
+      <span class="separator">›</span>
+      <span class="current">My Profile</span>
+    </div>
+    
+    <div class="page-header">
+      <h1 class="page-title">My Profile</h1>
+      <p class="page-description">View and manage your profile, credits, and contribution stats</p>
+    </div>
+    
+    <!-- TODO : change dummy data -->
+    <div class="profile-layout">
+      <div class="profile-sidebar">
+        <div class="profile-header">
+          <div class="profile-avatar">JS</div>
+          <h2 class="profile-name">John Smith</h2>
+          <div class="profile-username">&#64;jsDevMaster</div>
+          <p class="profile-bio">Front-end developer specializing in React, D3, and data visualization. Passionate about creating exceptional user experiences.</p>
+          <button class="btn btn-outline" (click)="openModal()">Edit Profile</button>
+        </div>
+        
+        <div class="profile-menu">
+          <a href="#" class="profile-menu-item active">
+            <div class="profile-menu-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+                <path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"></path>
+              </svg>
+            </div>
+            Profile Overview
+          </a>
+          <a href="#" class="profile-menu-item">
+            <div class="profile-menu-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </div>
+            My Contributions
+          </a>
+          <a href="#" class="profile-menu-item">
+            <div class="profile-menu-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h.01"></path>
+                <path d="M7 20v-4"></path>
+                <path d="M12 20v-8"></path>
+                <path d="M17 20V8"></path>
+                <path d="M22 4v16"></path>
+              </svg>
+            </div>
+            My Analytics
+          </a>
+          <a href="#" class="profile-menu-item">
+            <div class="profile-menu-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20"></path>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            Credits &amp; Rewards
+          </a>
+          <a href="#" class="profile-menu-item">
+            <div class="profile-menu-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            Account Settings
+          </a>
+        </div>
+      </div>
+      
+      <div class="profile-main">
+        <div class="profile-card">
+          <div class="card-header">
+            <h3 class="card-title">Credits Overview</h3>
+            <a href="#" class="btn btn-outline">Credit History</a>
+          </div>
+          <div class="card-body">
+            <div class="credits-display">
+              <div class="credits-overview">
+                <div class="credit-stat">
+                  <div class="credit-value">175</div>
+                  <div class="credit-label">Available Credits</div>
+                </div>
+                <div class="credit-stat">
+                  <div class="credit-value">215</div>
+                  <div class="credit-label">Total Earned Credits</div>
+                </div>
+                <div class="credit-stat">
+                  <div class="credit-value">40</div>
+                  <div class="credit-label">Credits Spent</div>
+                </div>
+              </div>
+              
+              <div class="credits-progress">
+                <div class="progress-header">
+                  <div class="progress-title">Progress to Next Tier</div>
+                  <div class="progress-value">175 / 300</div>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 58%;"></div>
+                </div>
+                <div class="progress-description">Earn 125 more credits to reach Gold Tier</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="profile-card">
+          <div class="card-header">
+            <h3 class="card-title">Rank &amp; Tier</h3>
+          </div>
+          <div class="card-body">
+            <div class="rank-display">
+              <div class="rank-badge silver">
+                <div class="rank-badge-inner">
+                  <div class="rank-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2v4"></path>
+                      <path d="m4.93 10.93 2.83-2.83"></path>
+                      <path d="M2 18h4"></path>
+                      <path d="m19.07 10.93-2.83-2.83"></path>
+                      <path d="M18 18h4"></path>
+                      <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"></path>
+                    </svg>
+                  </div>
+                  <div>Silver Tier</div>
+                </div>
+              </div>
+              
+              <h3 class="rank-name">Silver Contributor</h3>
+              <p class="rank-description">You've established yourself as a valuable contributor to the InterfaceHive community. Your consistent quality work and reliability make you stand out.</p>
+              
+              <div class="rank-benefits">
+                <div class="rank-benefit">
+                  <div class="rank-benefit-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2v4"></path>
+                      <path d="m6.343 6.343 2.828 2.828"></path>
+                      <path d="M2 12h4"></path>
+                      <path d="m6.343 17.657 2.828-2.828"></path>
+                      <path d="M12 18v4"></path>
+                      <path d="m14.828 14.828 2.828 2.828"></path>
+                      <path d="M18 12h4"></path>
+                      <path d="m14.828 9.172 2.828-2.828"></path>
+                    </svg>
+                  </div>
+                  <span>Priority Review</span>
+                </div>
+                <div class="rank-benefit">
+                  <div class="rank-benefit-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                    </svg>
+                  </div>
+                  <span>10% Bonus Credits</span>
+                </div>
+                <div class="rank-benefit">
+                  <div class="rank-benefit-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 12V2h10v10H2Z"></path>
+                      <path d="M12 12v10h10V12H12Z"></path>
+                      <path d="M12 2h10v10"></path>
+                      <path d="M2 22h10V12"></path>
+                    </svg>
+                  </div>
+                  <span>Access to Special Requests</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="profile-card">
+          <div class="card-header">
+            <h3 class="card-title">Contribution Statistics</h3>
+          </div>
+          <div class="card-body">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Total Contributions</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Accepted Contributions</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">42%</div>
+              <div class="stat-label">Acceptance Rate</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">24</div>
+              <div class="stat-label">Appreciation Points</div>
+            </div>
+          </div>
+          
+          <div class="credits-progress" style="margin-top: 32px;">
+            <div class="progress-header">
+              <div class="progress-title">Contribution Acceptance Rate</div>
+              <div class="progress-value">5 / 12</div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 42%; background-color: var(--green);"></div>
+            </div>
+            <div class="progress-description">Your contributions have a 42% acceptance rate, which is above the community average of 35%</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="profile-card">
+        <div class="card-header">
+          <h3 class="card-title">Recent Activity</h3>
+          <a href="#" class="btn btn-outline">View All</a>
+        </div>
+        <div class="card-body">
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <div class="activity-title">You submitted a new contribution: <a href="#" style="color: var(--secondary); text-decoration: none;">React + D3, Optimized Implementation</a></div>
+                <div class="activity-meta">
+                  <span>Today at 10:24 AM</span>
+                  <span>+0 Credits (Pending)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <div class="activity-title">Your contribution <a href="#" style="color: var(--secondary); text-decoration: none;">Vue.js Form Validation Library</a> received 5 likes</div>
+                <div class="activity-meta">
+                  <span>Yesterday at 2:15 PM</span>
+                  <span>+5 Appreciation Points</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon" style="background-color: rgba(94, 186, 125, 0.1); color: var(--green);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <path d="m9 11 3 3L22 4"></path>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <div class="activity-title">Your contribution <a href="#" style="color: var(--secondary); text-decoration: none;">Animated Navigation Component</a> was accepted</div>
+                <div class="activity-meta">
+                  <span>2 days ago</span>
+                  <span>+35 Credits</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon" style="background-color: rgba(73, 123, 227, 0.1); color: var(--secondary);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <div class="activity-title">You reached Silver Tier! Congratulations on your progress.</div>
+                <div class="activity-meta">
+                  <span>5 days ago</span>
+                  <span>+20 Credits Bonus</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="profile-card">
+        <div class="card-header">
+          <h3 class="card-title">Tier Progression</h3>
+        </div>
+        <div class="card-body">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <div class="progress-header">
+                <div class="progress-title">Early Contributor</div>
+                <div class="progress-value">Complete</div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+              </div>
+              <div class="progress-description">0-100 Credits</div>
+            </div>
+            
+            <div>
+              <div class="progress-header">
+                <div class="progress-title">Silver Contributor</div>
+                <div class="progress-value">Current Tier</div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+              </div>
+              <div class="progress-description">100-300 Credits</div>
+            </div>
+            
+            <div>
+              <div class="progress-header">
+                <div class="progress-title">Gold Contributor</div>
+                <div class="progress-value">175 / 300</div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 58%;"></div>
+              </div>
+              <div class="progress-description">300-600 Credits</div>
+            </div>
+            
+            <div>
+              <div class="progress-header">
+                <div class="progress-title">Platinum Contributor</div>
+                <div class="progress-value">0 / 600</div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <div class="progress-description">600-1000 Credits</div>
+            </div>
+            
+            <div>
+              <div class="progress-header">
+                <div class="progress-title">Diamond Contributor</div>
+                <div class="progress-value">0 / 1000</div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <div class="progress-description">1000-1500 Credits</div>
+            </div>
+            
+            <div>
+              <div class="progress-header">
+                <div class="progress-title">Expert Contributor</div>
+                <div class="progress-value">0 / 1500</div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%;"></div>
+              </div>
+              <div class="progress-description">1500+ Credits</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal">
+    <h3>Edit Profile</h3>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="editName">
+    </div>
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="editUsername">
+    </div>
+
+    <div class="form-group">
+      <label>Bio</label>
+      <textarea rows="4" [(ngModel)]="editBio"></textarea>
+    </div>
+
+    <div class="button-group">
+      <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+      <button class="btn btn-primary" (click)="saveChanges()">Save</button>
+    </div>
+  </div>
+</div>
