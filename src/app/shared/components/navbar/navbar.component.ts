@@ -13,13 +13,14 @@ import { filter } from 'rxjs/operators';
 })
 export class NavbarComponent {
   // component code
+  isLoggedIn = false; // Simulating a logged-in state
   currentUrl: string = '';
   profile = {
     username: 'jsDevMaster'
   };
 
   constructor(private router: Router) {
-    this.router.events
+    this.router.events    
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         this.currentUrl = event.urlAfterRedirects;
