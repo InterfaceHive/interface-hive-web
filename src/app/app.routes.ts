@@ -9,6 +9,7 @@ import { AboutComponent } from './features/about/about.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
 import { LoginComponent } from './features/login/login.component';
 import { SignUpComponent } from './features/signup/signup.component';
+import { ViewProfileComponent } from './features/view-profile/view-profile.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,5 +21,6 @@ export const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignUpComponent},
+  { path: 'view-profile', component: ViewProfileComponent},
   { path: '**', redirectTo: '' }
 ];
