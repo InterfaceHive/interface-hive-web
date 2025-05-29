@@ -24,9 +24,9 @@ export class CreateRequestComponent {
   }
 
   addTag(event: Event) {
-    const keyboradEvent = event as KeyboardEvent;
+    const keyboardEvent = event as KeyboardEvent;
   
-    if (keyboradEvent.key === 'Enter' && this.newTag.trim()) {
+    if (keyboardEvent.key === 'Enter' && this.newTag.trim()) {
       event.preventDefault();
       this.tags.push(this.newTag.trim());
       this.newTag = '';
