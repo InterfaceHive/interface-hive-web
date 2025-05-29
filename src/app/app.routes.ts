@@ -7,6 +7,8 @@ import { ViewMyRequestsComponent } from './features/view-my-requests/view-my-req
 import { ViewMyContributionsComponent } from './features/view-my-contributions/view-my-contributions.component';
 import { AboutComponent } from './features/about/about.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
+import { LoginComponent } from './features/login/login.component';
+import { SignUpComponent } from './features/signup/signup.component';
 import { ViewProfileComponent } from './features/view-profile/view-profile.component';
 
 export const routes: Routes = [
@@ -17,6 +19,8 @@ export const routes: Routes = [
   { path: 'view-my-contributions', component: ViewMyContributionsComponent},
   { path: 'about', component: AboutComponent},
   { path: 'contact-us', component: ContactUsComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignUpComponent},
   { path: 'view-profile', component: ViewProfileComponent},
   { path: '**', redirectTo: '' }
 ];

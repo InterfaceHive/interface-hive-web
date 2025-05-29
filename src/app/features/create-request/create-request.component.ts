@@ -1,10 +1,13 @@
 // interfacehive-request.component.ts
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule, FormArray, FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-interfacehive-request',
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './create-request.component.html',
   styleUrls: ['./create-request.component.css'],
   imports: [CommonModule]

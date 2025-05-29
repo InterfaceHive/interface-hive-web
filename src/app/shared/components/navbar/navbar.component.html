@@ -45,6 +45,8 @@
       <!-- TODO : currently show profile button in /view-profile page 
                   need to change so that profile button replace login/signup after logged in-->
       <div class="auth-buttons">
+        <a routerLink="/login" routerLinkActive="active" class="btn btn-outline">Log in</a>
+        <a routerLink="/signup" routerLinkActive="active" class="btn btn-secondary">Sign up</a>
         <ng-container *ngIf="isViewProfilePage(); else loginButtons">
           <a class="user-menu" [routerLink]="['/view-profile']">
             <div class="avatar">JS</div>
