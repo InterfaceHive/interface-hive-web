@@ -17,30 +17,22 @@
       </section>
     
       <div class="container">
+
+        <!-- Status Tabs -->
         <div class="status-tabs">
-          <div class="status-tab active">All Requests <span class="status-count">8</span></div>
-          <div class="status-tab">Active <span class="status-count">4</span></div>
-          <div class="status-tab">Completed <span class="status-count">3</span></div>
+          <div class="status-tab" [class.active]="activeStatusTab === 'all'" (click)="switchTab('all')">
+            All Requests <span class="status-count">8</span>
+          </div>
+          <div class="status-tab" [class.active]="activeStatusTab === 'active'" (click)="switchTab('active')">
+            Active <span class="status-count">4</span>
+          </div>
+          <div class="status-tab" [class.active]="activeStatusTab === 'completed'" (click)="switchTab('completed')">
+            Completed <span class="status-count">3</span>
+          </div>
         </div>
         
-        <section class="filter-section">
-          <div class="filter-group">
-            <span class="filter-label">Sort by:</span>
-            <select class="filter-select">
-              <option>Newest First</option>
-              <option>Oldest First</option>
-              <option>Most Responses</option>
-              <option>Least Responses</option>
-              <option>Highest Credits</option>
-            </select>
-          </div>
-          
-          <div class="filter-group">
-            <input type="text" class="search-input" placeholder="Search your requests...">
-          </div>
-        </section>
-        
-        <section class="requests-list">
+        <div id="all" class="tab-content" [class.active]="activeStatusTab === 'all'">
+          <section class="requests-list">
           <div class="request-card">
             <div class="request-stats">
               <div class="stat">
@@ -109,6 +101,31 @@
             </div>
           </div>   
         </section> 
+        </div>
+
+
+
+
+
+
+        <section class="filter-section">
+          <div class="filter-group">
+            <span class="filter-label">Sort by:</span>
+            <select class="filter-select">
+              <option>Newest First</option>
+              <option>Oldest First</option>
+              <option>Most Responses</option>
+              <option>Least Responses</option>
+              <option>Highest Credits</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <input type="text" class="search-input" placeholder="Search your requests...">
+          </div>
+        </section>
+        
+        
         </div>
     </body>
 </html>

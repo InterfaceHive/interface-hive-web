@@ -29,8 +29,7 @@
           <button type="button" class="tab-button" [class.active]="activeCodeTab === 'implementation-tab'" (click)="switchTab('code', 'implementation-tab')">Implementation Requirements</button>
         </div>
         <div id="code-tab" class="tab-content" [class.active]="activeCodeTab === 'code-tab'">
-          <textarea class="form-input form-textarea code-editor" 
-          placeholder="// Paste your code structure here...
+          <textarea class="form-input form-textarea code-editor" placeholder="// Paste your code structure here.
           // Example:
           function processData(data) {
             // TODO: Implement data processing algorithm
@@ -44,8 +43,7 @@
             */
             
             return data;
-          }">
-          </textarea>
+          }"></textarea>
         </div>
         <div id="implementation-tab" class="tab-content" [class.active]="activeCodeTab === 'implementation-tab'">
           <textarea class="form-input form-textarea" placeholder="Describe in detail what needs to be implemented, including technical requirements, edge cases to handle, and performance considerations..."></textarea>

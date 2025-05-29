@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './view-my-requests.component.css'
 })
 export class ViewMyRequestsComponent {
+   activeStatusTab: string = 'all';
 
+  switchTab(tab: string): void {
+    this.activeStatusTab = tab;
+  }
 }
+
