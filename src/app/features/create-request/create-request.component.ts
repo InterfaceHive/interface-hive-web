@@ -7,10 +7,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-interfacehive-request',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './create-request.component.html',
   styleUrls: ['./create-request.component.css'],
-  //  imports: [CommonModule]
 })
 export class CreateRequestComponent {
   activeCodeTab: 'code-tab' | 'implementation-tab' = 'code-tab';
