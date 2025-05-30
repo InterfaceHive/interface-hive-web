@@ -233,6 +233,21 @@
   display: block;
 }
 
+.logout-button {
+  display:flex;
+  background-color: white;             /* 흰 배경 */
+  color: #E34A4A;                   /* 빨간 텍스트 */
+  border: 1px solid #E34A4A;        /* 빨간 테두리 */
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;                     /* ✅ 여기에만 font-size */
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+  color: white;
+}
 
 :root {
       --primary: #F1BF42;        /* Orange - primary accent */
@@ -396,7 +411,15 @@
     
     /* Page Header */
     .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 24px;
+    }
+
+    .page-header-left {
+      display: flex;
+      flex-direction: column;
     }
     
     .page-title {

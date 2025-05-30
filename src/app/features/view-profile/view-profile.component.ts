@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-profile',
@@ -34,7 +35,7 @@ export class ViewProfileComponent implements OnInit {
   editUsername = '';
   editBio = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.editName = this.profile.name;
@@ -58,5 +59,17 @@ export class ViewProfileComponent implements OnInit {
     this.profile.username = this.editUsername;
     this.profile.bio = this.editBio;
     this.closeModal();
+  }
+
+  confirmLogout(): void {
+    const confirmed = window.confirm('Are you sure you want to log out?');
+    if (confirmed) {
+      this.logout();
+    }
+  }
+
+  logout(): void {
+    // TODO : logging out function
+    this.router.navigate(['/']);
   }
 }
