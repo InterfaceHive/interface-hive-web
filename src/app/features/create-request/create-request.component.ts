@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule],
   templateUrl: './create-request.component.html',
   styleUrls: ['./create-request.component.css'],
-  imports: [CommonModule]
+  //  imports: [CommonModule]
 })
 export class CreateRequestComponent {
   activeCodeTab: 'code-tab' | 'implementation-tab' = 'code-tab';
