@@ -26,10 +26,4 @@ export class NavbarComponent {
         this.currentUrl = event.urlAfterRedirects;
       });
   }
-
-  isViewProfilePage(): boolean {
-    console.log('Current URL:', this.currentUrl);
-
-    return ['/view-profile'].includes(this.currentUrl);
-  }
 }
