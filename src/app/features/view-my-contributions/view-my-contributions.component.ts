@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './view-my-contributions.component.css'
 })
 export class ViewMyContributionsComponent {
+   activeContributionTab: 'all' | 'Pending' | 'Accepted' | 'UnSelected'= 'all';
 
+
+  switchTab(tabId: string) {  
+      this.activeContributionTab = tabId as 'all' | 'Pending' | 'Accepted' | 'UnSelected';
+  }
 }
