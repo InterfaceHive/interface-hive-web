@@ -21,6 +21,7 @@
                   style="flex: 1; padding: 16px 20px; border: 1px solid #ccc; border-radius: 8px 0 0 8px; font-size: 16px;"
                 >
                 <button
+                  routerLink="/view-requests"
                   class="btn-search"
                   style="
                     background-color: var(--secondary);
@@ -41,7 +42,7 @@
             </div>
           </div>
           <div class="hero-image">
-            <img src="/api/placeholder/500/400" alt="Collaboration illustration">
+            <img src="assets/network.jpg" alt="Icon" style="width: 100%; max-width: 600px; border-radius: 16px;">
           </div>
         </div>
       </section>
@@ -198,9 +199,9 @@
         <div class="container">
           <h2>Ready to collaborate on meaningful projects?</h2>
           <p>Whether you need contributions for your project or want to build your portfolio with real-world experience, InterfaceHive connects you with the right people.</p>
-          <div class="cta-buttons">
+          <div class="cta-buttons" style="display: flex; justify-content: center; align-items: center; gap: 16px;">
             <a routerLink="/create-request" routerLinkActive="active" class="btn btn-primary">Start a Project</a>
-            <a href="#" class="btn btn-secondary">Join as Contributor</a>
+            <a href="/signup" class="btn btn-secondary">Join as a Contributor</a>
           </div>
         </div>
       </section>
