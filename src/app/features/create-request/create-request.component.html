@@ -1,7 +1,8 @@
 <section class="page-header">
   <div class="container">
     <h1>Create New Implementation Request</h1>
-    <p>Describe your code implementation needs, provide sample code structure, and offer credits for successful contributions. Be as soecific as possible to get quality responses.</p>
+    <p>Describe your code implementation needs, provide sample code structure, and offer credits for successful
+      contributions. Be as soecific as possible to get quality responses.</p>
   </div>
 </section>
 
@@ -10,27 +11,32 @@
     <div class="form-group">
       <label for="title" class="form-label">Request Title</label>
       <p class="form-help">Provide a clear and specific title that describes what you're looking for.</p>
-      <input type="text" id="title" class="form-input" placeholder="e.g., 'Implement efficient sorting algorithm for large datasets'">
+      <input type="text" id="title" class="form-input"
+        placeholder="e.g., 'Implement efficient sorting algorithm for large datasets'">
     </div>
 
     <div class="form-group">
       <label for="description" class="form-label">Description</label>
-      <p class="form-help">Explain in detail what you are trying to achieve, any constraints or requirements, and what a successful implementation would look like. </p>
-      <textarea id="description" class="form-input form-textarea" placeholder="Describe your requirements, context, and expectations."></textarea>
+      <p class="form-help">Explain in detail what you are trying to achieve, any constraints or requirements, and what a
+        successful implementation would look like. </p>
+      <textarea id="description" class="form-input form-textarea"
+        placeholder="Describe your requirements, context, and expectations."></textarea>
     </div>
 
     <!-- Code Tabs -->
     <div class="form-group">
       <label class="form-label">Code Implementation</label>
-      <p class="form-help">Provide your existing code structure with a clear indication of where and what needs to be implemented.</p>
+      <p class="form-help">Provide your existing code structure with a clear indication of where and what needs to be
+        implemented.</p>
       <div class="tab-container">
         <div class="tab-header">
-          <button type="button" class="tab-button" [class.active]="activeCodeTab === 'code-tab'" (click)="switchTab('code', 'code-tab')">Code Template</button>
-          <button type="button" class="tab-button" [class.active]="activeCodeTab === 'implementation-tab'" (click)="switchTab('code', 'implementation-tab')">Implementation Requirements</button>
+          <button type="button" class="tab-button" [class.active]="activeCodeTab === 'code-tab'"
+            (click)="switchTab('code', 'code-tab')">Code Template</button>
+          <button type="button" class="tab-button" [class.active]="activeCodeTab === 'implementation-tab'"
+            (click)="switchTab('code', 'implementation-tab')">Implementation Requirements</button>
         </div>
         <div id="code-tab" class="tab-content" [class.active]="activeCodeTab === 'code-tab'">
-          <textarea class="form-input form-textarea code-editor" 
-          placeholder="// Paste your code structure here...
+          <textarea class="form-input form-textarea code-editor" placeholder="// Paste your code structure here.
           // Example:
           function processData(data) {
             // TODO: Implement data processing algorithm
@@ -44,11 +50,11 @@
             */
             
             return data;
-          }">
-          </textarea>
+          }"></textarea>
         </div>
         <div id="implementation-tab" class="tab-content" [class.active]="activeCodeTab === 'implementation-tab'">
-          <textarea class="form-input form-textarea" placeholder="Describe in detail what needs to be implemented, including technical requirements, edge cases to handle, and performance considerations..."></textarea>
+          <textarea class="form-input form-textarea"
+            placeholder="Describe in detail what needs to be implemented, including technical requirements, edge cases to handle, and performance considerations..."></textarea>
         </div>
       </div>
     </div>
@@ -58,8 +64,10 @@
       <label class="form-label">Sample Input/Output</label>
       <div class="tab-container">
         <div class="tab-header">
-          <button type="button" class="tab-button" [class.active]="activeIOtab === 'input-tab'" (click)="switchTab('io', 'input-tab')">Sample Input</button>
-          <button type="button" class="tab-button" [class.active]="activeIOtab === 'output-tab'" (click)="switchTab('io', 'output-tab')">Expected Output</button>
+          <button type="button" class="tab-button" [class.active]="activeIOtab === 'input-tab'"
+            (click)="switchTab('io', 'input-tab')">Sample Input</button>
+          <button type="button" class="tab-button" [class.active]="activeIOtab === 'output-tab'"
+            (click)="switchTab('io', 'output-tab')">Expected Output</button>
         </div>
         <div id="input-tab" class="tab-content" [class.active]="activeIOtab === 'input-tab'">
           <textarea class="form-input form-textarea code-editor" placeholder="// Sample input data
@@ -71,7 +79,7 @@
           "></textarea>
         </div>
         <div id="output-tab" class="tab-content" [class.active]="activeIOtab === 'output-tab'">
-          <textarea class="form-input form-textarea code-editor"placeholder="// Expected output
+          <textarea class="form-input form-textarea code-editor" placeholder="// Expected output
           const expected = [
             { id: 2, value: null, priority: 1 },
             { id: 3, value: 'foo', priority: 2 },
@@ -108,7 +116,8 @@
       </div>
       <div class="tag-input-container">
         <!-- <input type="text" class="tag-input" placeholder="Add tag (press Enter to add)..." (keydown.enter)="addTag($event.target.value) $event.target.value=''"> -->
-        <input #tagInput class="tag-input" type="text" (keydown.enter)="addTag($event, tagInput.value); tagInput.value=''">
+        <input #tagInput class="tag-input" type="text"
+          (keydown.enter)="addTag($event, tagInput.value); tagInput.value=''">
       </div>
     </div>
 

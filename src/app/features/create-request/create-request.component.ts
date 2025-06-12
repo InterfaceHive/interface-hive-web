@@ -1,13 +1,15 @@
 // interfacehive-request.component.ts
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule, FormArray, FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-interfacehive-request',
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './create-request.component.html',
   styleUrls: ['./create-request.component.css'],
-  imports: [CommonModule]
 })
 export class CreateRequestComponent {
   activeCodeTab: 'code-tab' | 'implementation-tab' = 'code-tab';
