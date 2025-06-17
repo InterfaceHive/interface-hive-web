@@ -1,37 +1,49 @@
 import { Component } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
-import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Auth } from '@angular/fire/auth';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 @Component({
   selector: 'signup',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignUpComponent {
-  fullName: string = '';
-  email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
-  errorMessage: string = '';
+  signupForm: FormGroup;
+  errorMessage: string='';
+  successMessage: string='';
 
-  constructor(private auth: Auth, private router: Router) {}
+  constructor(private fb: FormBuilder, private auth: Auth, private router: Router) {
+    this.signupForm = this.fb.group({
+      fullName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(8)]]
+    });
+  }
 
-  signUp() {
-    if (this.password !== this.confirmPassword) {
-      this.errorMessage = "Passwords do not match.";
+  async onSubmit() {
+    const { email, password, confirmPassword } = this.signupForm.value;
+
+    if (password !== confirmPassword) {
+      this.errorMessage = 'Passwords do not match';
       return;
     }
 
-    createUserWithEmailAndPassword(this.auth, this.email, this.password)
-      .then(() => {
-        this.router.navigate(['/login']);
-      })
-      .catch((error) => {
-        this.errorMessage = error.message;
-      });
+    try {
+      await createUserWithEmailAndPassword(this.auth, email, password);
+      this.successMessage = 'Account created successfully! 🎉';
+      this.errorMessage = '';
+      setTimeout(() => this.router.navigate(['/']), 1500);
+
+      // this.router.navigate(['/']);
+    } catch (error: any) {
+      this.errorMessage = error.message;
+      this.successMessage = '';
+    }
   }
 }

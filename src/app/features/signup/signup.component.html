@@ -3,11 +3,11 @@
       <h1>Create an Account</h1>
       <p class="subtext">Join InterfaceHive and start collaborating</p>
 
-      <form class="signup-form" (ngSubmit)="signUp()">
-        <input type="text" [(ngModel)]="fullName" name="fullName" placeholder="Full Name" required />
-        <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
-        <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
-        <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
+      <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="fullName" name="fullName" placeholder="Full Name" required />
+        <input type="email" formControlName="email" name="email" placeholder="Email" required />
+        <input type="password" formControlName="password" name="password" placeholder="Password" required />
+        <input type="password" formControlName="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
         <button type="submit">Sign Up</button>
         <p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
       </form>
