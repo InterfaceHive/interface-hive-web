@@ -4,12 +4,12 @@ export const environment = {
     // Add other environment variables as needed
     
     firebase: {
-        apiKey: "AIzaSyAijgqb2cqdXE2afr8usVRPkCVNNXihA2M",
-        authDomain: "interface-hive-web.firebaseapp.com",
-        projectId: "interface-hive-web",
-        storageBucket: "interface-hive-web.firebasestorage.app",
-        messagingSenderId: "231047787712",
-        appId: "1:231047787712:web:c8d489ee3f906ac35fe925",
-        // measurementId: "G-9G0VZ340VH"
-    },
+      apiKey: "AIzaSyDShu_Ha_g7MQidFafLS3_EQ5wBYBVeR84",
+      authDomain: "interfacehive-2b858.firebaseapp.com",
+      projectId: "interfacehive-2b858",
+      storageBucket: "interfacehive-2b858.firebasestorage.app",
+      messagingSenderId: "526427756075",
+      appId: "1:526427756075:web:866d32a428f3f03c9dbc6e",
+      measurementId: "G-Z72V9BW16Y"
+    }
 };
